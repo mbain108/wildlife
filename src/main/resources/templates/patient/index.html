@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<p th:unless="${patients} and ${patients.size()}">no patients :(</p>
+
+<table class="table">
+
+    <tr>
+        <th>Case #</th>
+        <th>Admitted Date</th>
+        <th>Species Name</th>
+        <th>Reason</th>
+    </tr>
+
+    <tr th:each="patient : ${patients}">
+        <td><a th:href="'patient/edit/' + ${patient.id}" th:text="${patient.id}"></a></td>
+        <td th:text="${patient.admitted_date}"></td>
+        <td th:text="${patient.species_name}"></td>
+        <td th:text="${patient.reason}"></td>
+    </tr>
+
+</table>
+
+<a href="/patient/add">Add</a> |
+<a href="/patient/remove">Remove</a>
+
+</body>
+</html>
