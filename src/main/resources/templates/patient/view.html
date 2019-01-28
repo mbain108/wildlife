@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container" th:object="${patient}">
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<h1 th:text="${patient.id}"></h1>
+
+
+<p th:text="${patient.species_name}"></p>
+
+<p><a th:href="'/patient/edit/' + ${patient.id}">Edit Patient Record</a></p>
+
+</body>
+</html>

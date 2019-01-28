@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<h1 th:text="${title}">Default Title</h1>
+
+<form method="post" style="max-width:600px;" th:object="${patient}">
+    <div class="form-group">
+    <table>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td><label th:for="case_year">Case Year</label></td>
+                        <td colspan="3"><input class="form-control" th:field="*{case_year}" />
+                            <span th:errors="*{case_year}" class="error"></span>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td><label th:for="reference_number">Reference&nbsp;Number</label></td>
+                        <td><input class="form-control" th:field="*{reference_number}" />
+                            <span th:errors="*{reference_number}" class="error"></span>
+                        </td>
+                        <td><label th:for="microchip_number">Microchip&nbsp;Number</label></td>
+                        <td><input class="form-control" th:field="*{microchip_number}" />
+                            <span th:errors="*{microchip_number}" class="error"></span>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <br /><br />
+                <table>
+                    <tr>
+                        <td colspan="4">Species</td>
+                    </tr>
+
+                    <tr>
+                        <td><label th:for="species_name">Common Name</label></td>
+                        <td colspan="3"><input class="form-control" th:field="*{species_name}" />
+                            <span th:errors="*{species_name}" class="error"></span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><label th:for="number_of_patients">Number of Patients</label></td>
+                        <td colspan="3"><input class="form-control" th:field="*{number_of_patients}" />
+                            <span th:errors="*{number_of_patients}" class="error"></span>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <br /><br />
+                <table>
+                    <tr>
+                        <td colspan="4">Rescuer Contact</td>
+                    </tr>
+
+                    <tr>
+                        <td><label>Organization</label></td>
+                        <td><input class="form-control"/></td>
+                        <td><label>Phone&nbsp;Number</label></td>
+                        <td><input class="form-control"/></td>
+                    </tr>
+
+                    <tr>
+                        <td><label>First&nbsp;Name</label></td>
+                        <td><input class="form-control"/></td>
+                        <td><label>Alt.&nbsp;Phone&nbsp;Number</label></td>
+                        <td><input class="form-control"/></td>
+                    </tr>
+
+                    <tr>
+                        <td><label>Last&nbsp;Name</label></td>
+                        <td><input class="form-control"/></td>
+                        <td><label>Email</label></td>
+                        <td><input class="form-control"/></td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td><input class="form-control"/></td>
+                        <td>No&nbsp;Solicitations</td>
+                    </tr>
+
+                    <tr>
+                        <td><label>Address</label></td>
+                        <td colspan="3"><input class="form-control"/></td>
+                    </tr>
+
+                    <tr>
+                        <td><label>City, State</label></td>
+                        <td><input class="form-control"/></td>
+                        <td><label>Postal&nbsp;Code</label></td>
+                        <td><input class="form-control"/></td>
+                    </tr>
+
+                    <tr>
+                        <td><label th:for="rescuer_notes">Rescuer Notes</label></td>
+                        <td colspan="3"><input class="form-control" th:field="*{rescuer_notes}" />
+                            <span th:errors="*{rescuer_notes}" class="error"></span>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <br /><br />
+                <table>
+                    <tr>
+                        <td colspan="4">Donation</td>
+                    </tr>
+
+                    <tr>
+                        <td><label>Method</label></td>
+                        <td><input class="form-control"/></td>
+                        <td><label>Value</label></td>
+                        <td><input class="form-control"/></td>
+                    </tr>
+
+                    <tr>
+                        <td><label>Comments</label></td>
+                        <td colspan="3"><input class="form-control"/></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <br /><br />
+                <table>
+                    <tr>
+                        <td colspan="4">Intake</td>
+                    </tr>
+
+                    <tr>
+                        <td><label th:for="admitted_by">Admitted&nbsp;By</label></td>
+                        <td><input class="form-control" th:field="*{admitted_by}" />
+                            <span th:errors="*{admitted_by}" class="error"></span>
+                        </td>
+                        <td><label th:for="transported_by">Transported&nbsp;By</label></td>
+                        <td><input class="form-control" th:field="*{transported_by}" />
+                            <span th:errors="*{transported_by}" class="error"></span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><label th:for="address_found">Address&nbsp;Found</label></td>
+                        <td colspan="3"><input class="form-control" th:field="*{address_found}" />
+                            <span th:errors="*{address_found}" class="error"></span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><label th:for="city_found">City&nbsp;Found</label></td>
+                        <td><input class="form-control" th:field="*{city_found}" />
+                            <span th:errors="*{city_found}" class="error"></span>
+                        </td>
+                        <td><label th:for="state_found">State&nbsp;Found</label></td>
+                        <td><input class="form-control" th:field="*{state_found}" />
+                            <span th:errors="*{state_found}" class="error"></span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><label th:for="county_found">County&nbsp;Found</label></td>
+                        <td><input class="form-control" th:field="*{county_found}" />
+                            <span th:errors="*{county_found}" class="error"></span>
+                        </td>
+                        <td><label th:for="date_found">Date&nbsp;Found</label></td>
+                        <td><input class="form-control" th:field="*{date_found}" />
+                            <span th:errors="*{date_found}" class="error"></span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><label th:for="reason">Reasons&nbsp;For&nbsp;Admission</label></td>
+                        <td colspan="3"><input class="form-control" th:field="*{reason}" />
+                            <span th:errors="*{reason}" class="error"></span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><label th:for="care_from_user">Care&nbsp;By&nbsp;Rescuer</label></td>
+                        <td colspan="3"><input class="form-control" th:field="*{care_from_user}" />
+                            <span th:errors="*{care_from_user}" class="error"></span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><label th:for="notes_about_rescue">Notes&nbsp;About&nbsp;Rescue</label></td>
+                        <td colspan="3"><input class="form-control" th:field="*{notes_about_rescue}" />
+                            <span th:errors="*{notes_about_rescue}" class="error"></span>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    </div>
+
+    <input type="submit" value="Create Patient Record" />
+</form>
+
+</body>
+</html>

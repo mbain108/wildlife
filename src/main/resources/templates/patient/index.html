@@ -4,9 +4,9 @@
 
 <body class="container">
 
-<h1 th:text="${title}">Default Title</h1>
-
 <nav th:replace="fragments :: navigation"></nav>
+
+<h1 th:text="${title}">Default Title</h1>
 
 <p th:unless="${patients} and ${patients.size()}">no patients :(</p>
 
@@ -14,22 +14,25 @@
 
     <tr>
         <th>Case #</th>
-        <th>Admitted Date</th>
-        <th>Species Name</th>
-        <th>Reason</th>
+        <th>Species</th>
+        <th>Location</th>
+        <th>Band</th>
+        <th>Disposition</th>
+        <th>Date Admitted</th>
     </tr>
 
     <tr th:each="patient : ${patients}">
-        <td><a th:href="'patient/edit/' + ${patient.id}" th:text="${patient.id}"></a></td>
-        <td th:text="${patient.admitted_date}"></td>
-        <td th:text="${patient.species_name}"></td>
-        <td th:text="${patient.reason}"></td>
+        <td><a th:href="'patient/view/' + ${patient.getId()}" th:text="${patient.getId()}" /></td>
+        <td><a th:href="'patient/view/' + ${patient.getId()}" th:text="${patient.getSpecies_name()}" /></td>
+        <td th:text="${patient.location}"></td>
+        <td th:text="${patient.band}"></td>
+        <td th:text="${patient.disposition}"></td>
+        <td th:text="${patient.date_admitted}"></td>
     </tr>
 
 </table>
 
-<a href="/patient/add">Add</a> |
-<a href="/patient/remove">Remove</a>
+<a href="/patient/create">Create</a>
 
 </body>
 </html>
