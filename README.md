@@ -1,5 +1,4 @@
 # Project Overview
-# Project Setup
 WILDLIFE INTAKE APPLICATION, is an online application created specifically to assist wildlife care facilities in the collection and use of patient-related data. 
 
 ### My vision
