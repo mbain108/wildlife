@@ -5,13 +5,203 @@
 <body class="container" th:object="${patient}">
 
 <nav th:replace="fragments :: navigation"></nav>
+<br /><br /><br />
+<div style="position: relative; left: 180px; right: 10px;">
+<table>
+    <tr>
+        <td style="vertical-align: top;">
+            <nav th:replace="fragments :: side-navigation"></nav>
+        </td>
+        <td>
+            <h1 th:text="${patient.id}"></h1>
 
-<h1 th:text="${patient.id}"></h1>
+            <table>
+                <tr>
+                    <td>
+                        <table>
+                            <tr><div class="form-group">
+                                <td width="150">Case Year</td>
+                                <td th:text="${patient.case_year}"></td>
+                                <td></td>
+                                <td></td>
+                            </div></tr>
 
 
-<p th:text="${patient.species_name}"></p>
+                            <tr><div class="form-group">
+                                <td width="150">Reference&nbsp;Number</td>
+                                <td th:text="${patient.reference_number}"></td>
+                            </div>
+                            <div class="form-group">
+                                <td width="150">Microchip&nbsp;Number</td>
+                                <td th:text="${patient.microchip_number}"></td>
+                            </div></tr>
+                        </table>
+                    </td>
+                </tr>
 
-<p><a th:href="'/patient/edit/' + ${patient.id}">Edit Patient Record</a></p>
+                <tr>
+                    <td>
+                        <table>
+                            <tr>
+                                <td colspan="4"><h3 class="text-warning">Species</h3></td>
+                            </tr>
 
+                            <tr><div class="form-group">
+                                <td width="150">Common Name</td>
+                                <td colspan="3" th:text="${patient.species_name}"></td>
+                            </div></tr>
+
+                            <tr><div class="form-group">
+                                <td width="150">Number of Patients</td>
+                                <td colspan="3" th:text="${patient.number_of_patients}"></td>
+                            </div></tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <table>
+                            <tr>
+                                <td colspan="4"><h3 class="text-warning">Rescuer Contact</h3></td>
+                            </tr>
+
+                            <tr><div class="form-group">
+                                <td width="150">Organization</td>
+                                <td></td>
+                            </div><div class="form-group">
+                                <td width="150">Phone&nbsp;Number</td>
+                                <td></td>
+                            </div></tr>
+
+                            <tr><div class="form-group">
+                                <td width="150">First&nbsp;Name</td>
+                                <td th:text="${patient.rescuer_id}"></td>
+                            </div><div class="form-group">
+                                <td width="150">Alt.&nbsp;Phone&nbsp;Number</td>
+                                <td></td>
+                            </div></tr>
+
+                            <tr><div class="form-group">
+                                <td width="150">Last&nbsp;Name</td>
+                                <td></td>
+                            </div><div class="form-group">
+                                <td width="150">Email</td>
+                                <td></td>
+                            </div></tr>
+
+                            <tr><div class="form-group">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>No&nbsp;Solicitations</td>
+                            </div></tr>
+
+                            <tr><div class="form-group">
+                                <td width="150">Address</td>
+                                <td colspan="3"></td>
+                            </div></tr>
+
+                            <tr><div class="form-group">
+                                <td width="150">City, State</td>
+                                <td></td>
+                            </div><div class="form-group">
+                                <td width="150">Postal&nbsp;Code</td>
+                                <td></td>
+                            </div></tr>
+
+                            <tr><div class="form-group">
+                                <td width="150">Rescuer Notes</td>
+                                <td colspan="3" th:text="${patient.rescuer_notes}"></td>
+                            </div></tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <table>
+                            <tr>
+                                <td colspan="4"><h3 class="text-warning">Donation</h3></td>
+                            </tr>
+
+                            <tr><div class="form-group">
+                                <td width="150">Method</td>
+                                <td th:text="${patient.donation_id}"></td>
+                            </div><div class="form-group">
+                                <td width="150">Value</td>
+                                <td></td>
+                            </div></tr>
+
+                            <tr><div class="form-group">
+                                <td width="150">Comments</td>
+                                <td colspan="3"></td>
+                            </div></tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <table>
+                            <tr>
+                                <td colspan="4"><h3 class="text-warning">Intake</h3></td>
+                            </tr>
+
+                            <tr><div class="form-group">
+                                <td width="150">Admitted&nbsp;By</td>
+                                <td th:text="${patient.admitted_by}"></td>
+                            </div><div class="form-group">
+                                <td width="150">Transported&nbsp;By</td>
+                                <td th:text="${patient.transported_by}"></td>
+                            </div></tr>
+
+                            <tr><div class="form-group">
+                                <td width="150">Address&nbsp;Found</td>
+                                <td colspan="3" th:text="${patient.address_found}"></td>
+                            </div></tr>
+
+                            <tr><div class="form-group">
+                                <td width="150">City&nbsp;Found</td>
+                                <td th:text="${patient.city_found}"></td>
+                            </div><div class="form-group">
+                                <td width="150">State&nbsp;Found</td>
+                                <td th:text="${patient.state_found}"></td>
+                            </div></tr>
+
+                            <tr><div class="form-group">
+                                <td width="150">County&nbsp;Found</td>
+                                <td th:text="${patient.county_found}"></td>
+                            </div><div class="form-group">
+                                <td width="150">Date&nbsp;Found</td>
+                                <td th:text="${patient.date_found}"></td>
+                            </div></tr>
+
+                            <tr><div class="form-group">
+                                <td width="150">Reasons&nbsp;For&nbsp;Admission</td>
+                                <td colspan="3" th:text="${patient.reason}"></td>
+                            </div></tr>
+
+                            <tr><div class="form-group">
+                                <td width="150">Care&nbsp;By&nbsp;Rescuer</td>
+                                <td colspan="3" th:text="${patient.care_from_user}"></td>
+                            </div></tr>
+
+                            <tr><div class="form-group">
+                                <td width="150">Notes&nbsp;About&nbsp;Rescue</td>
+                                <td colspan="3" th:text="${patient.notes_about_rescue}"></td>
+                            </div></tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+
+            <br />
+            <button type="submit" class="btn btn-primary">Edit Patient Record</button>
+            <br />
+        </td>
+    </tr>
+</table>
+</div>
 </body>
 </html>

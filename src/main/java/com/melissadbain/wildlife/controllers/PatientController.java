@@ -11,14 +11,24 @@ import com.melissadbain.wildlife.models.Patient;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("patient")
+@RequestMapping("")
 public class PatientController {
 
     @Autowired
     private PatientDao patientDao;
 
-    @RequestMapping(value = "")
+
+    @RequestMapping(value = "/")
     public String index(Model model) {
+
+        model.addAttribute("title", "Demo Wildlife Rehabilitation Account");
+        model.addAttribute("patients", patientDao.findAll());
+
+        return "index";
+    }
+
+    @RequestMapping(value = "patient")
+    public String patientIndex(Model model) {
 
         model.addAttribute("title", "List All Patients");
         model.addAttribute("patients", patientDao.findAll());
@@ -26,7 +36,7 @@ public class PatientController {
         return "patient/index";
     }
 
-    @RequestMapping(value = "create", method = RequestMethod.GET)
+    @RequestMapping(value = "patient/create", method = RequestMethod.GET)
     public String displayCreatePatientForm(Model model) {
 
         model.addAttribute("title", "New Patient");
@@ -35,7 +45,7 @@ public class PatientController {
         return "patient/create";
     }
 
-    @RequestMapping(value = "create", method = RequestMethod.POST)
+    @RequestMapping(value = "patient/create", method = RequestMethod.POST)
     public String processCreatePatientForm(@ModelAttribute @Valid Patient newPatient,
                                            Errors errors, Model model) {
 
@@ -51,7 +61,7 @@ public class PatientController {
         return "redirect:";
     }
 
-    @RequestMapping(value = "view/{patientId}", method = RequestMethod.GET)
+    @RequestMapping(value = "patient/view/{patientId}", method = RequestMethod.GET)
     public String viewPatient(Model model, @PathVariable int patientId) {
 
         Patient patient = patientDao.findOne(patientId);
@@ -62,7 +72,7 @@ public class PatientController {
         return "patient/view";
     }
 
-    @RequestMapping(value="edit/{patientId}", method = RequestMethod.GET)
+    @RequestMapping(value="patient/edit/{patientId}", method = RequestMethod.GET)
     public String displayEditPatientForm(Model model, @PathVariable int patientId) {
 
         Patient editedPatient = patientDao.findOne(patientId);
@@ -74,7 +84,7 @@ public class PatientController {
 
     }
 
-    @RequestMapping(value="edit/{patientId}", method = RequestMethod.POST)
+    @RequestMapping(value="patient/edit/{patientId}", method = RequestMethod.POST)
     public String processEditPatientForm(Model model, @ModelAttribute @Valid Patient patient,
                                          @PathVariable int patientId, Errors errors) {
 
@@ -87,7 +97,27 @@ public class PatientController {
             return "patient/edit";
         }
 
+        editedPatient.setCase_year(patient.getCase_year());
         editedPatient.setSpecies_name(patient.getSpecies_name());
+        editedPatient.setReference_number(patient.getReference_number());
+        editedPatient.setMicrochip_number(patient.getMicrochip_number());
+        editedPatient.setNumber_of_patients(patient.getNumber_of_patients());
+        editedPatient.setRescuer_id(patient.getRescuer_id());
+        editedPatient.setRescuer_notes(patient.getRescuer_notes());
+        editedPatient.setDonation_id(patient.getDonation_id());
+        editedPatient.setAdmitted_by(patient.getAdmitted_by());
+        editedPatient.setTransported_by(patient.getTransported_by());
+        editedPatient.setAddress_found(patient.getAddress_found());
+        editedPatient.setCity_found(patient.getCity_found());
+        editedPatient.setState_found(patient.getState_found());
+        editedPatient.setCounty_found(patient.getCounty_found());
+        editedPatient.setDate_found(patient.getDate_found());
+        editedPatient.setReason(patient.getReason());
+        editedPatient.setCare_from_user(patient.getCare_from_user());
+        editedPatient.setNotes_about_rescue(patient.getNotes_about_rescue());
+        editedPatient.setLocation(patient.getLocation());
+        editedPatient.setBand(patient.getBand());
+        editedPatient.setDisposition(patient.getDisposition());
 
         patientDao.save(editedPatient);
 

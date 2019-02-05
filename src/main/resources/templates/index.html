@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<nav th:replace="fragments :: navigation"></nav>
+<br /><br /><br />
+<div style="position: relative; left: 180px; right: 10px;">
+    <table>
+        <tr>
+            <td style="vertical-align: top;">
+                <nav th:replace="fragments :: side-navigation"></nav>
+            </td>
+            <td>
+                <h1 th:text="${title}">Default Title</h1>
+                Future Dashboard for Wildlife Intake Application
+
+                <!--<main>
+                    <article th:each="p : ${recentThreePatients}">
+                        <span th:text="${#dates.format(p.date_admitted, 'dd-MMM-yyyy')}">22-May-2016</span>
+                        <p th:text="${p.id}">Post content</p>
+                        <p th:text="p.species_name"></p>
+                    </article>
+                </main>-->
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
