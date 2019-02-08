@@ -11,181 +11,201 @@ public class Patient {
     @GeneratedValue
     private int id;
 
-    @GeneratedValue
-    private String date_admitted;
-
-    private Integer reference_number;
-    private Integer microchip_number;
-    private String species_name;
-    private Integer number_of_patients;
-    private Integer rescuer_id;
-    private String rescuer_notes;
-    private Integer donation_id;
-    private String admitted_by;
-    private String transported_by;
-    private String address_found;
-    private String city_found;
-    private String state_found;
-    private String county_found;
-    private String date_found;
+    @Column(name = "date_admitted")
+    private String dateAdmitted;
+    @Column(name = "reference_number")
+    private Integer referenceNumber;
+    @Column(name = "microchip_number")
+    private Integer microchipNumber;
+    @Column(name = "species_name")
+    private String speciesName;
+    @Column(name = "number_of_patients")
+    private Integer numberOfPatients;
+    @Column(name = "rescuer_id")
+    private Integer rescuerId;
+    @Column(name = "rescuer_notes")
+    private String rescuerNotes;
+    @Column(name = "donation_id")
+    private Integer donationId;
+    @Column(name = "admitted_by")
+    private String admittedBy;
+    @Column(name = "transported_by")
+    private String transportedBy;
+    @Column(name = "address_found")
+    private String addressFound;
+    @Column(name = "city_found")
+    private String cityFound;
+    @Column(name = "state_found")
+    private String stateFound;
+    @Column(name = "county_found")
+    private String countyFound;
+    @Column(name = "date_found")
+    private String dateFound;
     private String reason;
-    private String care_from_user;
-    private String notes_about_rescue;
+    @Column(name = "care_from_user")
+    private String careFromUser;
+    @Column(name = "notes_about_rescue")
+    private String notesAboutRescue;
     private String location;
     private String band;
     private String disposition;
-    private String case_year;
+    @Column(name = "case_year")
+    private String caseYear;
 
     public Patient() {}
 
-    public Patient(Integer reference_number, Integer microchip_number,
-                   String species_name, Integer number_of_patients, Integer rescuer_id, String rescuer_notes, Integer donation_id,
-                   String admitted_by, String transported_by, String address_found, String city_found,
-                   String state_found, String county_found, String date_found, String reason, String care_from_user,
-                   String notes_about_rescue, String location, String band, String disposition,
-                   String case_year) {
+    public Patient(Integer referenceNumber, Integer microchipNumber, String speciesName,
+                   Integer numberOfPatients, Integer rescuerId, String rescuerNotes, Integer donationId,
+                   String admittedBy, String transportedBy, String addressFound, String cityFound,
+                   String stateFound, String countyFound, String dateDound, String reason,
+                   String careFromUser, String notesAboutRescue, String location, String band,
+                   String disposition, String caseYear) {
 
-        this.reference_number = reference_number;
-        this.microchip_number = microchip_number;
-        this.species_name = species_name;
-        this.number_of_patients = number_of_patients;
-        this.rescuer_id = rescuer_id;
-        this.rescuer_notes = rescuer_notes;
-        this.donation_id = donation_id;
-        this.admitted_by = admitted_by;
-        this.transported_by = transported_by;
-        this.address_found = address_found;
-        this.city_found = city_found;
-        this.state_found = state_found;
-        this.county_found = county_found;
-        this.date_found = date_found;
+        this.referenceNumber = referenceNumber;
+        this.microchipNumber = microchipNumber;
+        this.speciesName = speciesName;
+        this.numberOfPatients = numberOfPatients;
+        this.rescuerId = rescuerId;
+        this.rescuerNotes = rescuerNotes;
+        this.donationId = donationId;
+        this.admittedBy = admittedBy;
+        this.transportedBy = transportedBy;
+        this.addressFound = addressFound;
+        this.cityFound = cityFound;
+        this.stateFound = stateFound;
+        this.countyFound = countyFound;
+        this.dateFound = dateFound;
         this.reason = reason;
-        this.care_from_user = care_from_user;
-        this.notes_about_rescue = notes_about_rescue;
+        this.careFromUser = careFromUser;
+        this.notesAboutRescue = notesAboutRescue;
         this.location = location;
         this.band = band;
         this.disposition = disposition;
-        this.case_year = case_year;
+        this.caseYear = caseYear;
     }
 
     public int getId() {
         return id;
     }
 
-    public String getDate_admitted() {
-        return date_admitted;
+    public String getDateAdmitted() {
+        return dateAdmitted;
     }
 
-    public Integer getReference_number() {
-        return reference_number;
+    public void setDateAdmitted(String dateAdmitted) {
+        this.dateAdmitted = dateAdmitted;
     }
 
-    public void setReference_number(Integer reference_number) {
-        this.reference_number = reference_number;
+    public Integer getReferenceNumber() {
+        return referenceNumber;
     }
 
-    public Integer getMicrochip_number() {
-        return microchip_number;
+    public void setReferenceNumber(Integer referenceNumber) {
+        this.referenceNumber = referenceNumber;
     }
 
-    public void setMicrochip_number(Integer microchip_number) {
-        this.microchip_number = microchip_number;
+    public Integer getMicrochipNumber() {
+        return microchipNumber;
     }
 
-    public String getSpecies_name() {
-        return species_name;
+    public void setMicrochipNumber(Integer microchipNumber) {
+        this.microchipNumber = microchipNumber;
     }
 
-    public void setSpecies_name(String species_name) {
-        this.species_name = species_name;
+    public String getSpeciesName() {
+        return speciesName;
     }
 
-    public Integer getNumber_of_patients() {
-        return number_of_patients;
+    public void setSpeciesName(String speciesName) {
+        this.speciesName = speciesName;
     }
 
-    public void setNumber_of_patients(Integer number_of_patients) {
-        this.number_of_patients = number_of_patients;
+    public Integer getNumberOfPatients() {
+        return numberOfPatients;
     }
 
-    public Integer getRescuer_id() {
-        return rescuer_id;
+    public void setNumberOfPatients(Integer numberOfPatients) {
+        this.numberOfPatients = numberOfPatients;
     }
 
-    public void setRescuer_id(Integer rescuer_id) {
-        this.rescuer_id = rescuer_id;
+    public Integer getRescuerId() {
+        return rescuerId;
     }
 
-    public String getRescuer_notes() {
-        return rescuer_notes;
+    public void setRescuerId(Integer rescuerId) {
+        this.rescuerId = rescuerId;
     }
 
-    public void setRescuer_notes(String rescuer_notes) {
-        this.rescuer_notes = rescuer_notes;
+    public String getRescuerNotes() {
+        return rescuerNotes;
     }
 
-    public Integer getDonation_id() {
-        return donation_id;
+    public void setRescuerNotes(String rescuerNotes) {
+        this.rescuerNotes = rescuerNotes;
     }
 
-    public void setDonation_id(Integer donation_id) {
-        this.donation_id = donation_id;
+    public Integer getDonationId() {
+        return donationId;
     }
 
-    public String getAdmitted_by() {
-        return admitted_by;
+    public void setDonationId(Integer donationId) {
+        this.donationId = donationId;
     }
 
-    public void setAdmitted_by(String admitted_by) {
-        this.admitted_by = admitted_by;
+    public String getAdmittedBy() {
+        return admittedBy;
     }
 
-    public String getTransported_by() {
-        return transported_by;
+    public void setAdmittedBy(String admittedBy) {
+        this.admittedBy = admittedBy;
     }
 
-    public void setTransported_by(String transported_by) {
-        this.transported_by = transported_by;
+    public String getTransportedBy() {
+        return transportedBy;
     }
 
-    public String getAddress_found() {
-        return address_found;
+    public void setTransportedBy(String transportedBy) {
+        this.transportedBy = transportedBy;
     }
 
-    public void setAddress_found(String address_found) {
-        this.address_found = address_found;
+    public String getAddressFound() {
+        return addressFound;
     }
 
-    public String getCity_found() {
-        return city_found;
+    public void setAddressFound(String addressFound) {
+        this.addressFound = addressFound;
     }
 
-    public void setCity_found(String city_found) {
-        this.city_found = city_found;
+    public String getCityFound() {
+        return cityFound;
     }
 
-    public String getState_found() {
-        return state_found;
+    public void setCityFound(String cityFound) {
+        this.cityFound = cityFound;
     }
 
-    public void setState_found(String state_found) {
-        this.state_found = state_found;
+    public String getStateFound() {
+        return stateFound;
     }
 
-    public String getCounty_found() {
-        return county_found;
+    public void setStateFound(String stateFound) {
+        this.stateFound = stateFound;
     }
 
-    public void setCounty_found(String county_found) {
-        this.county_found = county_found;
+    public String getCountyFound() {
+        return countyFound;
     }
 
-    public String getDate_found() {
-        return date_found;
+    public void setCountyFound(String countyFound) {
+        this.countyFound = countyFound;
     }
 
-    public void setDate_found(String date_found) {
-        this.date_found = date_found;
+    public String getDateFound() {
+        return dateFound;
+    }
+
+    public void setDateFound(String dateFound) {
+        this.dateFound = dateFound;
     }
 
     public String getReason() {
@@ -196,20 +216,20 @@ public class Patient {
         this.reason = reason;
     }
 
-    public String getCare_from_user() {
-        return care_from_user;
+    public String getCareFromUser() {
+        return careFromUser;
     }
 
-    public void setCare_from_user(String care_from_user) {
-        this.care_from_user = care_from_user;
+    public void setCareFromUser(String careFromUser) {
+        this.careFromUser = careFromUser;
     }
 
-    public String getNotes_about_rescue() {
-        return notes_about_rescue;
+    public String getNotesAboutRescue() {
+        return notesAboutRescue;
     }
 
-    public void setNotes_about_rescue(String notes_about_rescue) {
-        this.notes_about_rescue = notes_about_rescue;
+    public void setNotesAboutRescue(String notesAboutRescue) {
+        this.notesAboutRescue = notesAboutRescue;
     }
 
     public String getLocation() {
@@ -236,11 +256,11 @@ public class Patient {
         this.disposition = disposition;
     }
 
-    public String getCase_year() {
-        return case_year;
+    public String getCaseYear() {
+        return caseYear;
     }
 
-    public void setCase_year(String case_year) {
-        this.case_year = case_year;
+    public void setCaseYear(String caseYear) {
+        this.caseYear = caseYear;
     }
 }

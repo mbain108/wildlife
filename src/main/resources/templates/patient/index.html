@@ -32,13 +32,13 @@
 
                 <tbody>
                 <tr class="table-dark" th:each="patient : ${patients}">
-                    <td><a th:href="'patient/view/' + ${patient.getId()}" th:text="${patient.getId()}" /></td>
-                    <td><a th:href="'patient/view/' + ${patient.getId()}" th:text="${patient.getSpecies_name()}" /></td>
+                    <td><a th:href="'/patient/view/' + ${patient.getId()}" th:text="${patient.getId()}" /></td>
+                    <td><a th:href="'/patient/view/' + ${patient.getId()}" th:text="${patient.getSpeciesName()}" /></td>
                     <td>&nbsp;</td>
                     <td th:text="${patient.location}"></td>
                     <td th:text="${patient.band}"></td>
                     <td th:text="${patient.disposition}"></td>
-                    <td th:text="${patient.date_admitted}"></td>
+                    <td th:text="${patient.dateAdmitted}"></td>
                 </tr>
                 </tbody>
             </table>

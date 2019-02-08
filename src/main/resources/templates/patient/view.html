@@ -21,7 +21,7 @@
                         <table>
                             <tr><div class="form-group">
                                 <td width="150">Case Year</td>
-                                <td th:text="${patient.case_year}"></td>
+                                <td th:text="${patient.caseYear}"></td>
                                 <td></td>
                                 <td></td>
                             </div></tr>
@@ -29,11 +29,11 @@
 
                             <tr><div class="form-group">
                                 <td width="150">Reference&nbsp;Number</td>
-                                <td th:text="${patient.reference_number}"></td>
+                                <td th:text="${patient.referenceNumber}"></td>
                             </div>
                             <div class="form-group">
                                 <td width="150">Microchip&nbsp;Number</td>
-                                <td th:text="${patient.microchip_number}"></td>
+                                <td th:text="${patient.microchipNumber}"></td>
                             </div></tr>
                         </table>
                     </td>
@@ -48,12 +48,12 @@
 
                             <tr><div class="form-group">
                                 <td width="150">Common Name</td>
-                                <td colspan="3" th:text="${patient.species_name}"></td>
+                                <td colspan="3" th:text="${patient.speciesName}"></td>
                             </div></tr>
 
                             <tr><div class="form-group">
                                 <td width="150">Number of Patients</td>
-                                <td colspan="3" th:text="${patient.number_of_patients}"></td>
+                                <td colspan="3" th:text="${patient.numberOfPatients}"></td>
                             </div></tr>
                         </table>
                     </td>
@@ -76,7 +76,7 @@
 
                             <tr><div class="form-group">
                                 <td width="150">First&nbsp;Name</td>
-                                <td th:text="${patient.rescuer_id}"></td>
+                                <td th:text="${patient.rescuerId}"></td>
                             </div><div class="form-group">
                                 <td width="150">Alt.&nbsp;Phone&nbsp;Number</td>
                                 <td></td>
@@ -112,7 +112,7 @@
 
                             <tr><div class="form-group">
                                 <td width="150">Rescuer Notes</td>
-                                <td colspan="3" th:text="${patient.rescuer_notes}"></td>
+                                <td colspan="3" th:text="${patient.rescuerNotes}"></td>
                             </div></tr>
                         </table>
                     </td>
@@ -127,7 +127,7 @@
 
                             <tr><div class="form-group">
                                 <td width="150">Method</td>
-                                <td th:text="${patient.donation_id}"></td>
+                                <td th:text="${patient.donationId}"></td>
                             </div><div class="form-group">
                                 <td width="150">Value</td>
                                 <td></td>
@@ -150,31 +150,31 @@
 
                             <tr><div class="form-group">
                                 <td width="150">Admitted&nbsp;By</td>
-                                <td th:text="${patient.admitted_by}"></td>
+                                <td th:text="${patient.admittedBy}"></td>
                             </div><div class="form-group">
                                 <td width="150">Transported&nbsp;By</td>
-                                <td th:text="${patient.transported_by}"></td>
+                                <td th:text="${patient.transportedBy}"></td>
                             </div></tr>
 
                             <tr><div class="form-group">
                                 <td width="150">Address&nbsp;Found</td>
-                                <td colspan="3" th:text="${patient.address_found}"></td>
+                                <td colspan="3" th:text="${patient.addressFound}"></td>
                             </div></tr>
 
                             <tr><div class="form-group">
                                 <td width="150">City&nbsp;Found</td>
-                                <td th:text="${patient.city_found}"></td>
+                                <td th:text="${patient.cityFound}"></td>
                             </div><div class="form-group">
                                 <td width="150">State&nbsp;Found</td>
-                                <td th:text="${patient.state_found}"></td>
+                                <td th:text="${patient.stateFound}"></td>
                             </div></tr>
 
                             <tr><div class="form-group">
                                 <td width="150">County&nbsp;Found</td>
-                                <td th:text="${patient.county_found}"></td>
+                                <td th:text="${patient.countyFound}"></td>
                             </div><div class="form-group">
                                 <td width="150">Date&nbsp;Found</td>
-                                <td th:text="${patient.date_found}"></td>
+                                <td th:text="${patient.dateFound}"></td>
                             </div></tr>
 
                             <tr><div class="form-group">
@@ -184,12 +184,12 @@
 
                             <tr><div class="form-group">
                                 <td width="150">Care&nbsp;By&nbsp;Rescuer</td>
-                                <td colspan="3" th:text="${patient.care_from_user}"></td>
+                                <td colspan="3" th:text="${patient.careFromUser}"></td>
                             </div></tr>
 
                             <tr><div class="form-group">
                                 <td width="150">Notes&nbsp;About&nbsp;Rescue</td>
-                                <td colspan="3" th:text="${patient.notes_about_rescue}"></td>
+                                <td colspan="3" th:text="${patient.notesAboutRescue}"></td>
                             </div></tr>
                         </table>
                     </td>
@@ -197,7 +197,7 @@
             </table>
 
             <br />
-            <button type="submit" class="btn btn-primary">Edit Patient Record</button>
+            <a th:href="'/patient/edit/' + ${patient.getId()}">Edit Patient Record</a>
             <br />
         </td>
     </tr>

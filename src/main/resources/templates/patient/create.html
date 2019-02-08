@@ -21,9 +21,9 @@
                             <td>
                                 <table>
                                     <tr><div class="form-group">
-                                        <td width="150"><label class="col-form-label" th:for="case_year">Case Year</label></td>
-                                        <td><input class="form-control form-control-sm" placeholder="2019" th:field="*{case_year}" />
-                                            <span th:errors="*{case_year}" class="error"></span>
+                                        <td width="150"><label class="col-form-label" th:for="caseYear">Case Year</label></td>
+                                        <td><input class="form-control form-control-sm" placeholder="2019" th:field="*{caseYear}" />
+                                            <span th:errors="*{caseYear}" class="error"></span>
                                         </td>
                                         <td></td>
                                         <td></td>
@@ -31,14 +31,14 @@
 
 
                                     <tr><div class="form-group">
-                                        <td width="150"><label class="col-form-label" th:for="reference_number">Reference&nbsp;Number</label></td>
-                                        <td><input class="form-control form-control-sm" th:field="*{reference_number}" />
-                                            <span th:errors="*{reference_number}" class="error"></span>
+                                        <td width="150"><label class="col-form-label" th:for="referenceNumber">Reference&nbsp;Number</label></td>
+                                        <td><input class="form-control form-control-sm" th:field="*{referenceNumber}" />
+                                            <span th:errors="*{referenceNumber}" class="error"></span>
                                         </td></div>
                                         <div class="form-group">
-                                        <td width="150"><label class="col-form-label" th:for="microchip_number">Microchip&nbsp;Number</label></td>
-                                        <td><input class="form-control form-control-sm" th:field="*{microchip_number}" />
-                                            <span th:errors="*{microchip_number}" class="error"></span>
+                                        <td width="150"><label class="col-form-label" th:for="microchipNumber">Microchip&nbsp;Number</label></td>
+                                        <td><input class="form-control form-control-sm" th:field="*{microchipNumber}" />
+                                            <span th:errors="*{microchipNumber}" class="error"></span>
                                         </td></div>
                                     </tr>
                                 </table>
@@ -53,15 +53,15 @@
                                     </tr>
 
                                     <tr><div class="form-group">
-                                        <td width="150"><label class="col-form-label" th:for="species_name">Common Name</label></td>
-                                        <td colspan="3"><input class="form-control form-control-sm" th:field="*{species_name}" />
-                                            <span th:errors="*{species_name}" class="error"></span>
+                                        <td width="150"><label class="col-form-label" th:for="speciesName">Common Name</label></td>
+                                        <td colspan="3"><input class="form-control form-control-sm" th:field="*{speciesName}" />
+                                            <span th:errors="*{speciesName}" class="error"></span>
                                         </td>
                                     </div></tr>
 
                                     <tr><div class="form-group">
-                                        <td width="150"><label class="col-form-label" th:for="number_of_patients">Number of Patients</label></td>
-                                        <td colspan="3"><select class="custom-select form-control form-control-sm" th:field="*{number_of_patients}">
+                                        <td width="150"><label class="col-form-label" th:for="numberOfPatients">Number of Patients</label></td>
+                                        <td colspan="3"><select class="custom-select form-control form-control-sm" th:field="*{numberOfPatients}">
                                             <option value="1" selected="selected">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
@@ -73,7 +73,7 @@
                                             <option value="9">9</option>
                                             <option value="10">10</option>
                                         </select>
-                                            <span th:errors="*{number_of_patients}" class="error"></span>
+                                            <span th:errors="*{numberOfPatients}" class="error"></span>
                                         </td>
                                     </div></tr>
                                 </table>
@@ -132,9 +132,9 @@
                                     </div></tr>
 
                                     <tr><div class="form-group">
-                                        <td width="150"><label class="col-form-label" th:for="rescuer_notes">Rescuer Notes</label></td>
-                                        <td colspan="3"><input class="form-control form-control-sm" th:field="*{rescuer_notes}" />
-                                            <span th:errors="*{rescuer_notes}" class="error"></span>
+                                        <td width="150"><label class="col-form-label" th:for="rescuerNotes">Rescuer Notes</label></td>
+                                        <td colspan="3"><input class="form-control form-control-sm" th:field="*{rescuerNotes}" />
+                                            <span th:errors="*{rescuerNotes}" class="error"></span>
                                         </td>
                                     </div></tr>
                                 </table>
@@ -178,32 +178,32 @@
                                     </tr>
 
                                     <tr><div class="form-group">
-                                        <td width="150"><label class="col-form-label" th:for="admitted_by">Admitted&nbsp;By</label></td>
-                                        <td><input class="form-control form-control-sm" th:field="*{admitted_by}" />
-                                            <span th:errors="*{admitted_by}" class="error"></span>
+                                        <td width="150"><label class="col-form-label" th:for="admittedBy">Admitted&nbsp;By</label></td>
+                                        <td><input class="form-control form-control-sm" th:field="*{admittedBy}" />
+                                            <span th:errors="*{admittedBy}" class="error"></span>
                                         </td>
                                     </div><div class="form-group">
-                                        <td width="150"><label class="col-form-label" th:for="transported_by">Transported&nbsp;By</label></td>
-                                        <td><input class="form-control form-control-sm" th:field="*{transported_by}" />
-                                            <span th:errors="*{transported_by}" class="error"></span>
+                                        <td width="150"><label class="col-form-label" th:for="transportedBy">Transported&nbsp;By</label></td>
+                                        <td><input class="form-control form-control-sm" th:field="*{transportedBy}" />
+                                            <span th:errors="*{transportedBy}" class="error"></span>
                                         </td>
                                     </div></tr>
 
                                     <tr><div class="form-group">
-                                        <td width="150"><label class="col-form-label" th:for="address_found">Address&nbsp;Found</label></td>
-                                        <td colspan="3"><input class="form-control form-control-sm" th:field="*{address_found}" />
-                                            <span th:errors="*{address_found}" class="error"></span>
+                                        <td width="150"><label class="col-form-label" th:for="addressFound">Address&nbsp;Found</label></td>
+                                        <td colspan="3"><input class="form-control form-control-sm" th:field="*{addressFound}" />
+                                            <span th:errors="*{addressFound}" class="error"></span>
                                         </td>
                                     </div></tr>
 
                                     <tr><div class="form-group">
-                                        <td width="150"><label class="col-form-label" th:for="city_found">City&nbsp;Found</label></td>
-                                        <td><input class="form-control form-control-sm" th:field="*{city_found}" />
-                                            <span th:errors="*{city_found}" class="error"></span>
+                                        <td width="150"><label class="col-form-label" th:for="cityFound">City&nbsp;Found</label></td>
+                                        <td><input class="form-control form-control-sm" th:field="*{cityFound}" />
+                                            <span th:errors="*{cityFound}" class="error"></span>
                                         </td>
                                     </div><div class="form-group">
-                                        <td width="150"><label class="col-form-label" th:for="state_found">State&nbsp;Found</label></td>
-                                        <td><select class="custom-select form-control form-control-sm" th:field="*{state_found}">
+                                        <td width="150"><label class="col-form-label" th:for="stateFound">State&nbsp;Found</label></td>
+                                        <td><select class="custom-select form-control form-control-sm" th:field="*{stateFound}">
                                             <option value="AL" selected="selected">AL</option>
                                             <option value="AK">AK</option>
                                             <option value="AZ">AZ</option>
@@ -258,19 +258,19 @@
                                             <option value="WI">WI</option>
                                             <option value="WY">WY</option>
                                         </select>
-                                            <span th:errors="*{state_found}" class="error"></span>
+                                            <span th:errors="*{stateFound}" class="error"></span>
                                         </td>
                                     </div></tr>
 
                                     <tr><div class="form-group">
-                                        <td width="150"><label class="col-form-label" th:for="county_found">County&nbsp;Found</label></td>
-                                        <td><input class="form-control form-control-sm" th:field="*{county_found}" />
-                                            <span th:errors="*{county_found}" class="error"></span>
+                                        <td width="150"><label class="col-form-label" th:for="countyFound">County&nbsp;Found</label></td>
+                                        <td><input class="form-control form-control-sm" th:field="*{countyFound}" />
+                                            <span th:errors="*{countyFound}" class="error"></span>
                                         </td>
                                     </div><div class="form-group">
-                                        <td width="150"><label class="col-form-label" th:for="date_found">Date&nbsp;Found</label></td>
-                                        <td><input class="form-control form-control-sm" th:field="*{date_found}" />
-                                            <span th:errors="*{date_found}" class="error"></span>
+                                        <td width="150"><label class="col-form-label" th:for="dateFound">Date&nbsp;Found</label></td>
+                                        <td><input class="form-control form-control-sm" th:field="*{dateFound}" />
+                                            <span th:errors="*{dateFound}" class="error"></span>
                                         </td>
                                     </div></tr>
 
@@ -282,16 +282,16 @@
                                     </div></tr>
 
                                     <tr><div class="form-group">
-                                        <td width="150"><label class="col-form-label" th:for="care_from_user">Care&nbsp;By&nbsp;Rescuer</label></td>
-                                        <td colspan="3"><input class="form-control form-control-sm" th:field="*{care_from_user}" />
-                                            <span th:errors="*{care_from_user}" class="error"></span>
+                                        <td width="150"><label class="col-form-label" th:for="careFromUser">Care&nbsp;By&nbsp;Rescuer</label></td>
+                                        <td colspan="3"><input class="form-control form-control-sm" th:field="*{careFromUser}" />
+                                            <span th:errors="*{careFromUser}" class="error"></span>
                                         </td>
                                     </div></tr>
 
                                     <tr><div class="form-group">
-                                        <td width="150"><label class="col-form-label" th:for="notes_about_rescue">Notes&nbsp;About&nbsp;Rescue</label></td>
-                                        <td colspan="3"><input class="form-control form-control-sm" th:field="*{notes_about_rescue}" />
-                                            <span th:errors="*{notes_about_rescue}" class="error"></span>
+                                        <td width="150"><label class="col-form-label" th:for="notesAboutRescue">Notes&nbsp;About&nbsp;Rescue</label></td>
+                                        <td colspan="3"><input class="form-control form-control-sm" th:field="*{notesAboutRescue}" />
+                                            <span th:errors="*{notesAboutRescue}" class="error"></span>
                                         </td>
                                     </div></tr>
                                 </table>

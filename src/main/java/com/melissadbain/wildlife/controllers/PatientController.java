@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import com.melissadbain.wildlife.models.Patient;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @RequestMapping("")
@@ -17,12 +18,12 @@ public class PatientController {
     @Autowired
     private PatientDao patientDao;
 
-
     @RequestMapping(value = "/")
     public String index(Model model) {
 
         model.addAttribute("title", "Demo Wildlife Rehabilitation Account");
-        model.addAttribute("patients", patientDao.findAll());
+        //model.addAttribute("patients", patientDao.findByReason("CBH"));
+        model.addAttribute("patients", patientDao.findBySpeciesName("Pigeon"));
 
         return "index";
     }
@@ -97,24 +98,25 @@ public class PatientController {
             return "patient/edit";
         }
 
-        editedPatient.setCase_year(patient.getCase_year());
-        editedPatient.setSpecies_name(patient.getSpecies_name());
-        editedPatient.setReference_number(patient.getReference_number());
-        editedPatient.setMicrochip_number(patient.getMicrochip_number());
-        editedPatient.setNumber_of_patients(patient.getNumber_of_patients());
-        editedPatient.setRescuer_id(patient.getRescuer_id());
-        editedPatient.setRescuer_notes(patient.getRescuer_notes());
-        editedPatient.setDonation_id(patient.getDonation_id());
-        editedPatient.setAdmitted_by(patient.getAdmitted_by());
-        editedPatient.setTransported_by(patient.getTransported_by());
-        editedPatient.setAddress_found(patient.getAddress_found());
-        editedPatient.setCity_found(patient.getCity_found());
-        editedPatient.setState_found(patient.getState_found());
-        editedPatient.setCounty_found(patient.getCounty_found());
-        editedPatient.setDate_found(patient.getDate_found());
+        // send back as json object and then save upsert with hibernate
+        editedPatient.setCaseYear(patient.getCaseYear());
+        editedPatient.setSpeciesName(patient.getSpeciesName());
+        editedPatient.setReferenceNumber(patient.getReferenceNumber());
+        editedPatient.setMicrochipNumber(patient.getMicrochipNumber());
+        editedPatient.setNumberOfPatients(patient.getNumberOfPatients());
+        editedPatient.setRescuerId(patient.getRescuerId());
+        editedPatient.setRescuerNotes(patient.getRescuerNotes());
+        editedPatient.setDonationId(patient.getDonationId());
+        editedPatient.setAdmittedBy(patient.getAdmittedBy());
+        editedPatient.setTransportedBy(patient.getTransportedBy());
+        editedPatient.setAddressFound(patient.getAddressFound());
+        editedPatient.setCityFound(patient.getCityFound());
+        editedPatient.setStateFound(patient.getStateFound());
+        editedPatient.setCountyFound(patient.getCountyFound());
+        editedPatient.setDateFound(patient.getDateFound());
         editedPatient.setReason(patient.getReason());
-        editedPatient.setCare_from_user(patient.getCare_from_user());
-        editedPatient.setNotes_about_rescue(patient.getNotes_about_rescue());
+        editedPatient.setCareFromUser(patient.getCareFromUser());
+        editedPatient.setNotesAboutRescue(patient.getNotesAboutRescue());
         editedPatient.setLocation(patient.getLocation());
         editedPatient.setBand(patient.getBand());
         editedPatient.setDisposition(patient.getDisposition());

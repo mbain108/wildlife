@@ -16,13 +16,16 @@
                 <h1 th:text="${title}">Default Title</h1>
                 Future Dashboard for Wildlife Intake Application
 
-                <!--<main>
-                    <article th:each="p : ${recentThreePatients}">
-                        <span th:text="${#dates.format(p.date_admitted, 'dd-MMM-yyyy')}">22-May-2016</span>
+                <main>
+                    <article th:each="p : ${patients}">
+                        <!--<span th:text="${#dates.format(p.date_admitted, 'dd-MMM-yyyy')}">22-May-2016</span>-->
                         <p th:text="${p.id}">Post content</p>
-                        <p th:text="p.species_name"></p>
+                        <p th:text="${p.speciesName}"></p>
                     </article>
-                </main>-->
+                </main>
+
+                <!--nvd3 graphs/charts-->
+
             </td>
         </tr>
     </table>
