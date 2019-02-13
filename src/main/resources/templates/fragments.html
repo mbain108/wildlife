@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:fragment="head">
     <meta charset="UTF-8"/>
-    <title th:text="${title}">Wildlife Intake Application</title>
+    <title th:text="${title}">WISDM -> Wildlife Intake Standardization and Data Management</title>
 
     <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}"/>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -10,7 +10,7 @@
 <body>
 
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" th:fragment="navigation">
-    <a class="navbar-brand" href="../">WILDLIFE INTAKE APPLICATION</a>
+    <a class="navbar-brand" href="../">WISDM -> Wildlife Intake Standardization and Data Management</a>
 </nav>
 
 <nav style="position: fixed; left: 20px;" th:fragment="side-navigation">
@@ -18,30 +18,36 @@
         <tr>
             <td>
                 <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action warning">Quick Search</a>
+                    <p class="list-group-item alert-light">Quick Search</p>
                     <a href="#" class="list-group-item list-group-item-action">text box w/ button</a>
                 </div>
+                <br />
             </td>
         </tr>
+
+
+
 
         <tr>
             <td>
                 <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action warning">Recent Patients</a>
-                    <a href="#" class="list-group-item list-group-item-action">Patient 1</a>
-                    <a href="#" class="list-group-item list-group-item-action">Patient 2</a>
-                    <a href="#" class="list-group-item list-group-item-action">Patient 3</a>
+                    <p class="list-group-item alert-light">Recent Patients</p>
+                    <a href="#" class="list-group-item list-group-item-action">Updated&nbsp;|&nbsp;Admitted</a>
+                    <article th:each="p : ${recentPatients}">
+                    <a th:href="'/view/' + ${p.getId()}" th:text="'19-' + ${p.id} + '&nbsp;&nbsp;&nbsp;' + ${p.speciesName}" class="list-group-item list-group-item-action">Patient</a>
+                    </article>
                 </div>
+                <br />
             </td>
         </tr>
 
         <tr>
             <td>
                 <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action warning">Quick Links</a>
+                    <p class="list-group-item alert-light">Quick Links</p>
                     <a href="../" class="list-group-item list-group-item-action">Dashboard</a>
-                    <a href="/patient/create" class="list-group-item list-group-item-action">Add New Patient</a>
-                    <a href="/patient" class="list-group-item list-group-item-action">List Patients</a>
+                    <a href="/create" class="list-group-item list-group-item-action">Add New Patient</a>
+                    <a href="/list" class="list-group-item list-group-item-action">List Patients</a>
                     <a href="#" class="list-group-item list-group-item-action">Search Patients</a>
                     <a href="#" class="list-group-item list-group-item-action">Reports</a>
                     <a href="#" class="list-group-item list-group-item-action">Analytics</a>

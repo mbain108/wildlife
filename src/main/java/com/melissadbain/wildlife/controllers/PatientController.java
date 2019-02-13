@@ -18,43 +18,53 @@ public class PatientController {
     @Autowired
     private PatientDao patientDao;
 
-    @RequestMapping(value = "/")
+    @RequestMapping(value = "")
     public String index(Model model) {
 
         model.addAttribute("title", "Demo Wildlife Rehabilitation Account");
         //model.addAttribute("patients", patientDao.findByReason("CBH"));
-        model.addAttribute("patients", patientDao.findBySpeciesName("Pigeon"));
+        //model.addAttribute("patients", patientDao.findBySpeciesName("Pigeon"));
+        model.addAttribute("recentPatients", patientDao.findTop3ByOrderByIdDesc());
+        model.addAttribute("count", patientDao.count());
+        model.addAttribute("findByDateAdmittedWithinSevenDays", patientDao.findByDateAdmittedWithinSevenDays());
+        model.addAttribute("countByCaseYear", patientDao.countByCaseYear("2019"));
+        //model.addAttribute("findSpeciesNameById", patientDao.findSpeciesNameById(3));
 
         return "index";
     }
 
-    @RequestMapping(value = "patient")
-    public String patientIndex(Model model) {
+    @RequestMapping(value = "list")
+    public String patientList(Model model) {
 
         model.addAttribute("title", "List All Patients");
+        model.addAttribute("recentPatients", patientDao.findTop3ByOrderByIdDesc());
+
         model.addAttribute("patients", patientDao.findAll());
 
-        return "patient/index";
+        return "list";
     }
 
-    @RequestMapping(value = "patient/create", method = RequestMethod.GET)
+    @RequestMapping(value = "create", method = RequestMethod.GET)
     public String displayCreatePatientForm(Model model) {
 
         model.addAttribute("title", "New Patient");
+        model.addAttribute("recentPatients", patientDao.findTop3ByOrderByIdDesc());
+
         model.addAttribute(new Patient());
 
-        return "patient/create";
+        return "create";
     }
 
-    @RequestMapping(value = "patient/create", method = RequestMethod.POST)
+    @RequestMapping(value = "create", method = RequestMethod.POST)
     public String processCreatePatientForm(@ModelAttribute @Valid Patient newPatient,
                                            Errors errors, Model model) {
 
         if (errors.hasErrors()) {
 
             model.addAttribute("title", "New Patient");
+            model.addAttribute("recentPatients", patientDao.findTop3ByOrderByIdDesc());
 
-            return "patient/create";
+            return "create";
         }
 
         patientDao.save(newPatient);
@@ -62,30 +72,32 @@ public class PatientController {
         return "redirect:";
     }
 
-    @RequestMapping(value = "patient/view/{patientId}", method = RequestMethod.GET)
+    @RequestMapping(value = "view/{patientId}", method = RequestMethod.GET)
     public String viewPatient(Model model, @PathVariable int patientId) {
 
         Patient patient = patientDao.findOne(patientId);
 
         model.addAttribute("patient", patient);
         model.addAttribute("patientId", patient.getId());
+        model.addAttribute("recentPatients", patientDao.findTop3ByOrderByIdDesc());
 
-        return "patient/view";
+        return "view";
     }
 
-    @RequestMapping(value="patient/edit/{patientId}", method = RequestMethod.GET)
+    @RequestMapping(value="edit/{patientId}", method = RequestMethod.GET)
     public String displayEditPatientForm(Model model, @PathVariable int patientId) {
 
         Patient editedPatient = patientDao.findOne(patientId);
 
         model.addAttribute("title", "Edit - " + editedPatient.getId());
         model.addAttribute("patient", editedPatient);
+        model.addAttribute("recentPatients", patientDao.findTop3ByOrderByIdDesc());
 
-        return "patient/edit";
+        return "edit";
 
     }
 
-    @RequestMapping(value="patient/edit/{patientId}", method = RequestMethod.POST)
+    @RequestMapping(value="edit/{patientId}", method = RequestMethod.POST)
     public String processEditPatientForm(Model model, @ModelAttribute @Valid Patient patient,
                                          @PathVariable int patientId, Errors errors) {
 
@@ -94,8 +106,9 @@ public class PatientController {
         if(errors.hasErrors()) {
 
             model.addAttribute("title", "Edit - " + editedPatient.getId());
+            model.addAttribute("recentPatients", patientDao.findTop3ByOrderByIdDesc());
 
-            return "patient/edit";
+            return "edit";
         }
 
         // send back as json object and then save upsert with hibernate
@@ -123,6 +136,6 @@ public class PatientController {
 
         patientDao.save(editedPatient);
 
-        return "redirect:/patient";
+        return "redirect:/view/{patientId}";
     }
 }

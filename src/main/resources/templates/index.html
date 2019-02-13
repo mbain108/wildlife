@@ -6,7 +6,7 @@
 
 <nav th:replace="fragments :: navigation"></nav>
 <br /><br /><br />
-<div style="position: relative; left: 180px; right: 10px;">
+<article style="position: relative; left: 180px; right: 10px;">
     <table>
         <tr>
             <td style="vertical-align: top;">
@@ -14,21 +14,30 @@
             </td>
             <td>
                 <h1 th:text="${title}">Default Title</h1>
-                Future Dashboard for Wildlife Intake Application
+                <br />
+                <table>
+                    <tr>
+                        <td style="text-align:center;" width="175">
+                            <article th:each="p : ${countByCaseYear}">Cases in 2019
+                                <p th:text="${countByCaseYear}">number</p></article></td>
+                        <td style="text-align:center;" width="175">
+                            <article th:each="p : ${findByDateAdmittedWithinSevenDays}">Cases This week
+                                <p th:text="${findByDateAdmittedWithinSevenDays}">number</p></article></td>
+                        <td style="text-align:center;" width="175">
+                            <article th:each="p : ${countByCaseYear}">2019 Cases in Care
+                                <p th:text="${countByCaseYear}">number</p></article></td>
+                        <td style="text-align:center;" width="175">Total Cases<p th:text="${count}">number</p></td>
+                    </tr>
 
-                <main>
-                    <article th:each="p : ${patients}">
-                        <!--<span th:text="${#dates.format(p.date_admitted, 'dd-MMM-yyyy')}">22-May-2016</span>-->
-                        <p th:text="${p.id}">Post content</p>
-                        <p th:text="${p.speciesName}"></p>
-                    </article>
-                </main>
+                </table>
 
                 <!--nvd3 graphs/charts-->
-
+                <br /><br />Total Cases Per Day in 2019
+                <br /><svg></svg>
+                <script src="https://d3js.org/d3.v4.min.js"></script>
             </td>
         </tr>
     </table>
-</div>
+</article>
 </body>
 </html>

@@ -32,8 +32,8 @@
 
                 <tbody>
                 <tr class="table-dark" th:each="patient : ${patients}">
-                    <td><a th:href="'/patient/view/' + ${patient.getId()}" th:text="${patient.getId()}" /></td>
-                    <td><a th:href="'/patient/view/' + ${patient.getId()}" th:text="${patient.getSpeciesName()}" /></td>
+                    <td><a th:href="'view/' + ${patient.getId()}" th:text="${patient.getId()}" /></td>
+                    <td><a th:href="'view/' + ${patient.getId()}" th:text="${patient.getSpeciesName()}" /></td>
                     <td>&nbsp;</td>
                     <td th:text="${patient.location}"></td>
                     <td th:text="${patient.band}"></td>
